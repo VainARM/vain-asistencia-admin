@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <span class="pointer" (click)="setBasica()" [ngClass]="{'selected': basica}">Basica</span>
+  <span class="ml-5 pointer" (click)="setMarca()" [ngClass]="{'selected': marcas}">Marcas</span>
+  <span class="ml-5 pointer" (click)="setNoenv()" [ngClass]="{'selected': noenv}">No Enviadas</span>
+  <span class="ml-5 pointer" (click)="setFoto()" [ngClass]="{'selected': fotos}">Foto</span>
+  <span class="ml-5 pointer" (click)="setLog()" [ngClass]="{'selected': marcas}">Admin.</span>
+</mat-toolbar>
+
+<div class="main">
+  <app-basica *ngIf="basica"></app-basica>
+  <app-log *ngIf="log"></app-log>
+  <app-marcas *ngIf="marcas"></app-marcas>
+  <app-foto *ngIf="fotos"></app-foto>
+  <app-no-enviadas *ngIf="noenv"></app-no-enviadas>
+</div>
+
+<footer class="footer">
+  <div class="container">
+  <div class="content has-text-centered">
+    <p (click)="lector()">
+      Versión: {{version}}
+    </p>
+  </div>
+  </div>
+  </footer>

@@ -1,0 +1,39 @@
+<div class="ml-2 pt-2">
+  <div class="row">
+<div class="col-8">
+  <div class="row">
+    <div class="col-6 letra-blanca">
+      <mat-form-field>
+        <mat-label>Centro Costo</mat-label>
+        <mat-select [(ngModel)]="centroSelected">
+          <mat-option *ngFor="let centro of centros" [value]="centro.id">
+            {{centro.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3 letra-blanca">
+      <mat-form-field>
+        <input autocomplete="off" [(ngModel)]="tiempoEspera" matInput placeholder="Tiempo de espera" />
+      </mat-form-field>
+    </div>
+    <div class="col-3 letra-blanca">
+      <mat-form-field>
+        <input autocomplete="off" [(ngModel)]="errores" matInput placeholder="Intentos para foto" />
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="col-4 letra-blanca">
+  <mat-form-field>
+    <input autocomplete="off" [(ngModel)]="dispositivoId" matInput placeholder="DispositivoId" disabled />
+  </mat-form-field>
+  <button mat-raised-button class="btn btn-azul-claro ml-2" (click)="serial()">
+    <mat-icon>fingerprint</mat-icon> Leer Serial
+  </button>
+</div>
+<button mat-raised-button class="btn btn-azul-claro" (click)="guardar()">
+  <mat-icon>save</mat-icon> Guardar
+</button>
+  </div>
+</div>

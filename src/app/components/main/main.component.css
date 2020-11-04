@@ -1,0 +1,31 @@
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.main {
+  background-color: #1f2935;
+  height: 90%;
+}
+
+.footer {
+  background-color: #1f2935;
+  color: white;
+  bottom: 5px;
+  position: absolute;
+  right: 50px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.letra-blanca {
+  color:white;
+}

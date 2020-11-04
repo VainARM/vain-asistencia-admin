@@ -1,0 +1,31 @@
+<mat-form-field appearance="outline" class="filtro-busqueda ml-2 letra-blanca"  *ngIf="!mostrarFoto">
+  <mat-label>Buscar</mat-label>
+  <input autocomplete="off" matInput placeholder="Filtrar" (keyup)="applyFilter($event.target.value)" />
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<table mat-table [dataSource]="tabla" class="mat-elevation-z8 mr-1" style="font-size: 8px !important; width: 100%;" *ngIf="!mostrarFoto">
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+    <td mat-cell *matCellDef="let element"> {{element.fecha | date: 'HH:mm (dd/MM/yyyy)'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="enviado">
+    <th mat-header-cell *matHeaderCellDef> Enviado </th>
+    <td mat-cell *matCellDef="let element"> <mat-icon *ngIf="element.enviado">check</mat-icon> <mat-icon *ngIf="!element.enviado">close</mat-icon> </td>
+  </ng-container>
+  <ng-container matColumnDef="fechaenviado">
+    <th mat-header-cell *matHeaderCellDef> Fecha Enviado </th>
+    <td mat-cell *matCellDef="let element"> <span *ngIf="element.enviado">{{element.fechaEnviado | date: 'HH:mm (dd/MM)'}}</span> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ver">
+    <th mat-header-cell *matHeaderCellDef> Ver </th>
+    <td mat-cell *matCellDef="let element"> <mat-icon class="pointer" (click)="buscarFoto(element.adjuntoId)">send</mat-icon></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<h3 *ngIf="mostrarFoto" class="letra-blanca pointer" (click)="volver()">Volver</h3>
+<img [src]="foto" *ngIf="mostrarFoto"/>
